@@ -1,29 +1,28 @@
 #include "Book.h"
 
-Book::Book()
-    : title_(""), author_(""), isbn_(""), isAvailable_(true) {}
+Book::Book(std::string t, std::string a, std::string i) 
+    : title(t), author(a), isbn(i), isAvailable(true) {}
 
-Book::Book(const std::string& title, const std::string& author, const std::string& isbn)
-    : title_(title), author_(author), isbn_(isbn), isAvailable_(true) {}
-
-const std::string& Book::getTitle() const { return title_; }
-const std::string& Book::getAuthor() const { return author_; }
-const std::string& Book::getISBN() const { return isbn_; }
-bool Book::getAvailability() const { return isAvailable_; }
-
-void Book::setTitle(const std::string& title) { title_ = title; }
-void Book::setAuthor(const std::string& author) { author_ = author; }
-void Book::setISBN(const std::string& isbn) { isbn_ = isbn; }
-void Book::setAvailability(bool isAvailable) { isAvailable_ = isAvailable; }
-
-bool Book::borrow() {
-    if (!isAvailable_) return false;
-    isAvailable_ = false;
-    return true;
+void Book::borrow() { 
+    isAvailable = false; 
 }
 
-bool Book::returnBook() {
-    if (isAvailable_) return false;
-    isAvailable_ = true;
-    return true;
+void Book::returnBook() { 
+    isAvailable = true; 
+}
+
+std::string Book::getTitle() const { 
+    return title; 
+}
+
+std::string Book::getAuthor() const { 
+    return author; 
+}
+
+std::string Book::getISBN() const { 
+    return isbn; 
+}
+
+bool Book::getAvailability() const { 
+    return isAvailable; 
 }

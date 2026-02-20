@@ -1,32 +1,24 @@
-#pragma once
-
+#ifndef BOOK_H
+#define BOOK_H
 #include <string>
 
 class Book {
 private:
-    std::string title_;
-    std::string author_;
-    std::string isbn_;
-    bool isAvailable_;
-
+    std::string title;
+    std::string author;
+    std::string isbn;
+    bool isAvailable;
+    
 public:
-    // Конструкторы
-    Book();
-    Book(const std::string& title, const std::string& author, const std::string& isbn);
-
-    // Геттеры
-    const std::string& getTitle() const;
-    const std::string& getAuthor() const;
-    const std::string& getISBN() const;
+    // Конструктор
+    Book(std::string t, std::string a, std::string i);
+    
+    // Методы
+    void borrow();
+    void returnBook();
+    std::string getTitle() const;
+    std::string getAuthor() const;
+    std::string getISBN() const;
     bool getAvailability() const;
-
-    // Сеттеры
-    void setTitle(const std::string& title);
-    void setAuthor(const std::string& author);
-    void setISBN(const std::string& isbn);
-    void setAvailability(bool isAvailable);
-
-    // Бизнес-логика
-    bool borrow();       // true если удалось выдать
-    bool returnBook();   // true если удалось вернуть
 };
+#endif
